@@ -73,7 +73,7 @@ const HeroSection = () => {
               <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center h-full">
                   {/* Text Content - Left Side */}
-                  <div className="animate-luxury-fade-in text-center lg:text-left">
+                  <div className="animate-luxury-fade-in text-left">
                     <div className="flex items-center mb-4">
                       <span className="text-primary font-medium tracking-wider uppercase text-sm">
                         Premium Luxury
@@ -88,9 +88,12 @@ const HeroSection = () => {
                       {slide.subtitle}
                     </p>
                     
-                    <div className="flex justify-center lg:justify-start">
+                    <div className="flex flex-col sm:flex-row gap-4 items-start">
                       <Button className="btn-luxury text-lg px-8 py-3" onClick={() => navigate('/shop')}>
                         {slide.cta}
+                      </Button>
+                      <Button variant="outline" className="btn-glass text-white border-white hover:bg-white/10 text-lg px-8 py-3" onClick={() => navigate('/collections')}>
+                        View Collection
                       </Button>
                     </div>
                   </div>
