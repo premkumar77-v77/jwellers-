@@ -15,7 +15,7 @@ const Collections = () => {
       description: "Crowning glory of precious gems and rare diamonds, inspired by royal heritage and timeless elegance.",
       image: productNecklace,
       icon: Crown,
-      price: "From $5,000",
+      weight: "From 500g",
       pieces: 24,
       badge: "Signature",
       highlights: ["Rare Diamonds", "Royal Heritage", "Limited Edition"],
@@ -27,7 +27,7 @@ const Collections = () => {
       description: "Romantic pieces for life's most precious moments, celebrating eternal bonds and cherished memories.",
       image: productEarrings,
       icon: Heart,
-      price: "From $2,500",
+      weight: "From 250g",
       pieces: 18,
       badge: "Popular",
       highlights: ["Romantic Design", "Perfect for Proposals", "Customizable"],
@@ -39,7 +39,7 @@ const Collections = () => {
       description: "Exclusively crafted statement pieces that embody luxury and sophistication in every detail.",
       image: productBracelet,
       icon: Star,
-      price: "From $8,000",
+      weight: "From 800g",
       pieces: 12,
       badge: "Exclusive",
       highlights: ["Handcrafted", "One-of-a-Kind", "Master Artisan"],
@@ -51,7 +51,7 @@ const Collections = () => {
       description: "Inspired by the cosmos, featuring star and moon motifs with shimmering diamonds.",
       image: productEarrings,
       icon: Sparkles,
-      price: "From $1,800",
+      weight: "From 180g",
       pieces: 20,
       badge: "New",
       highlights: ["Cosmic Design", "Diamond Stars", "Night Sky Theme"],
@@ -63,7 +63,7 @@ const Collections = () => {
       description: "Timeless designs passed down through generations, reimagined for modern elegance.",
       image: productNecklace,
       icon: Award,
-      price: "From $4,200",
+      weight: "From 420g",
       pieces: 16,
       badge: "Classic",
       highlights: ["Vintage Inspired", "Heirloom Quality", "Traditional Craft"],
@@ -75,7 +75,7 @@ const Collections = () => {
       description: "Featuring the world's most coveted gemstones in stunning contemporary settings.",
       image: productBracelet,
       icon: Gem,
-      price: "From $6,500",
+      weight: "From 650g",
       pieces: 14,
       badge: "Premium",
       highlights: ["Rare Gemstones", "Certificate of Authenticity", "Museum Quality"],
@@ -112,7 +112,7 @@ const Collections = () => {
             </div>
             
             <h1 className="text-5xl md:text-6xl font-luxury font-bold text-luxury-black mb-6">
-              Jewelry Collections
+              Venkateswara Jewellers Collections
             </h1>
             
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
@@ -129,7 +129,7 @@ const Collections = () => {
         <div className="mb-20">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-luxury font-bold text-luxury-black mb-4">
-              Featured Collections
+              Venkateswara Jewellers Featured Collections
             </h2>
             <p className="text-lg text-muted-foreground">
               Our most beloved and exclusive collections
@@ -168,10 +168,7 @@ const Collections = () => {
                           {collection.pieces} Pieces
                         </span>
                       </div>
-                      <Button className="btn-luxury" onClick={() => navigate(`/collections/${collection.id}`)}>
-                        Explore Collection
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </Button>
+
                     </div>
                   </div>
                 </div>
@@ -202,7 +199,7 @@ const Collections = () => {
                   
                   <div className="flex items-center justify-between">
                     <span className="text-xl font-bold text-luxury">
-                      {collection.price}
+                      {collection.weight}
                     </span>
                     <Button variant="ghost" className="hover-luxury p-0">
                       View All
@@ -272,7 +269,7 @@ const Collections = () => {
                   <div className="flex items-center justify-between">
                     <div>
                       <span className="text-lg font-bold text-luxury block">
-                        {collection.price}
+                        {collection.weight}
                       </span>
                       <span className="text-sm text-muted-foreground">
                         {collection.pieces} pieces

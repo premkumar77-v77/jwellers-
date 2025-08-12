@@ -12,7 +12,7 @@ import productNecklace from '@/assets/product-necklace.jpg';
 const Shop = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const [priceRange, setPriceRange] = useState('all');
+  const [weightRange, setWeightRange] = useState('all');
   const [sortBy, setSortBy] = useState('featured');
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
 
@@ -21,8 +21,8 @@ const Shop = () => {
     {
       id: 1,
       name: "Pearl Essence Earrings",
-      price: 1200,
-      originalPrice: 1500,
+      weight: 12.5,
+      originalWeight: 15.0,
       image: productEarrings,
       rating: 4.9,
       reviews: 128,
@@ -32,8 +32,8 @@ const Shop = () => {
     {
       id: 2,
       name: "Diamond Infinity Bracelet",
-      price: 3200,
-      originalPrice: null,
+      weight: 32.0,
+      originalWeight: null,
       image: productBracelet,
       rating: 5.0,
       reviews: 89,
@@ -43,8 +43,8 @@ const Shop = () => {
     {
       id: 3,
       name: "Royal Tennis Necklace",
-      price: 4500,
-      originalPrice: 5200,
+      weight: 45.0,
+      originalWeight: 52.0,
       image: productNecklace,
       rating: 4.8,
       reviews: 156,
@@ -54,8 +54,8 @@ const Shop = () => {
     {
       id: 4,
       name: "Elegance Drop Earrings",
-      price: 890,
-      originalPrice: null,
+      weight: 8.9,
+      originalWeight: null,
       image: productEarrings,
       rating: 4.7,
       reviews: 203,
@@ -65,8 +65,8 @@ const Shop = () => {
     {
       id: 5,
       name: "Luxury Chain Bracelet",
-      price: 2100,
-      originalPrice: 2400,
+      weight: 21.0,
+      originalWeight: 24.0,
       image: productBracelet,
       rating: 4.9,
       reviews: 95,
@@ -76,8 +76,8 @@ const Shop = () => {
     {
       id: 6,
       name: "Signature Diamond Necklace",
-      price: 6800,
-      originalPrice: null,
+      weight: 68.0,
+      originalWeight: null,
       image: productNecklace,
       rating: 5.0,
       reviews: 67,
@@ -87,8 +87,8 @@ const Shop = () => {
     {
       id: 7,
       name: "Classic Pearl Necklace",
-      price: 1800,
-      originalPrice: null,
+      weight: 18.0,
+      originalWeight: null,
       image: productNecklace,
       rating: 4.6,
       reviews: 142,
@@ -97,8 +97,8 @@ const Shop = () => {
     {
       id: 8,
       name: "Gold Charm Bracelet",
-      price: 950,
-      originalPrice: 1200,
+      weight: 9.5,
+      originalWeight: 12.0,
       image: productBracelet,
       rating: 4.5,
       reviews: 78,
@@ -108,8 +108,8 @@ const Shop = () => {
     {
       id: 9,
       name: "Diamond Stud Earrings",
-      price: 2200,
-      originalPrice: null,
+      weight: 22.0,
+      originalWeight: null,
       image: productEarrings,
       rating: 4.8,
       reviews: 234,
@@ -127,18 +127,18 @@ const Shop = () => {
     { value: 'Watches', label: 'Watches' }
   ];
 
-  const priceRanges = [
-    { value: 'all', label: 'All Prices' },
-    { value: '0-1000', label: 'Under $1,000' },
-    { value: '1000-3000', label: '$1,000 - $3,000' },
-    { value: '3000-5000', label: '$3,000 - $5,000' },
-    { value: '5000+', label: 'Over $5,000' }
+  const weightRanges = [
+    { value: 'all', label: 'All Weights' },
+    { value: '0-10', label: 'Under 10g' },
+    { value: '10-30', label: '10g - 30g' },
+    { value: '30-50', label: '30g - 50g' },
+    { value: '50+', label: 'Over 50g' }
   ];
 
   const sortOptions = [
     { value: 'featured', label: 'Featured' },
-    { value: 'price-low', label: 'Price: Low to High' },
-    { value: 'price-high', label: 'Price: High to Low' },
+    { value: 'weight-low', label: 'Weight: Low to High' },
+    { value: 'weight-high', label: 'Weight: High to Low' },
     { value: 'rating', label: 'Highest Rated' },
     { value: 'newest', label: 'Newest' }
   ];
@@ -160,22 +160,22 @@ const Shop = () => {
       filtered = filtered.filter(product => product.category === selectedCategory);
     }
 
-    // Price filter
-    if (priceRange !== 'all') {
-      const [min, max] = priceRange.split('-').map(Number);
+    // Weight filter
+    if (weightRange !== 'all') {
+      const [min, max] = weightRange.split('-').map(Number);
       filtered = filtered.filter(product => {
-        if (priceRange === '5000+') return product.price >= 5000;
-        return product.price >= min && product.price <= max;
+        if (weightRange === '50+') return product.weight >= 50;
+        return product.weight >= min && product.weight <= max;
       });
     }
 
     // Sort
     switch (sortBy) {
-      case 'price-low':
-        filtered.sort((a, b) => a.price - b.price);
+      case 'weight-low':
+        filtered.sort((a, b) => a.weight - b.weight);
         break;
-      case 'price-high':
-        filtered.sort((a, b) => b.price - a.price);
+      case 'weight-high':
+        filtered.sort((a, b) => b.weight - a.weight);
         break;
       case 'rating':
         filtered.sort((a, b) => b.rating - a.rating);
@@ -189,16 +189,16 @@ const Shop = () => {
     }
 
     return filtered;
-  }, [searchQuery, selectedCategory, priceRange, sortBy]);
+  }, [searchQuery, selectedCategory, weightRange, sortBy]);
 
   const clearFilters = () => {
     setSearchQuery('');
     setSelectedCategory('all');
-    setPriceRange('all');
+    setWeightRange('all');
     setSortBy('featured');
   };
 
-  const hasActiveFilters = searchQuery || selectedCategory !== 'all' || priceRange !== 'all';
+  const hasActiveFilters = searchQuery || selectedCategory !== 'all' || weightRange !== 'all';
 
   return (
     <div className="min-h-screen bg-luxury-gray-light pt-20">
@@ -252,12 +252,12 @@ const Shop = () => {
                 </SelectContent>
               </Select>
 
-              <Select value={priceRange} onValueChange={setPriceRange}>
+              <Select value={weightRange} onValueChange={setWeightRange}>
                 <SelectTrigger className="w-48">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  {priceRanges.map(range => (
+                  {weightRanges.map(range => (
                     <SelectItem key={range.value} value={range.value}>
                       {range.label}
                     </SelectItem>
@@ -319,9 +319,9 @@ const Shop = () => {
                 {selectedCategory !== 'all' && (
                   <Badge variant="secondary">Category: {selectedCategory}</Badge>
                 )}
-                {priceRange !== 'all' && (
+                {weightRange !== 'all' && (
                   <Badge variant="secondary">
-                    Price: {priceRanges.find(r => r.value === priceRange)?.label}
+                    Weight: {weightRanges.find(r => r.value === weightRange)?.label}
                   </Badge>
                 )}
               </div>
@@ -346,14 +346,20 @@ const Shop = () => {
             {filteredProducts.map((product) => (
               <ProductCard
                 key={product.id}
-                product={product}
+                product={{
+                  ...product,
+                  weight: product.weight.toString(),
+                  originalWeight: product.originalWeight?.toString()
+                  ...product,
+                  weight: product.weight.toString()
+                }}
                 className={viewMode === 'list' ? 'flex flex-row' : ''}
               />
             ))}
           </div>
         ) : (
           <div className="text-center py-12">
-            <div className="text-6xl mb-4">💎</div>
+            
             <h3 className="text-2xl font-luxury font-semibold mb-2">No products found</h3>
             <p className="text-muted-foreground mb-6">
               Try adjusting your search or filter criteria

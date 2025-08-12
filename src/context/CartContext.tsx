@@ -1,9 +1,9 @@
 import React, { createContext, useContext, useReducer, ReactNode } from 'react';
 
 export interface CartItem {
-  id: number;
+  id: string;
   name: string;
-  price: number;
+  weight: number;
   image: string;
   quantity: number;
   size?: string;
@@ -18,8 +18,8 @@ interface CartState {
 
 type CartAction =
   | { type: 'ADD_TO_CART'; payload: Omit<CartItem, 'quantity'> }
-  | { type: 'REMOVE_FROM_CART'; payload: number }
-  | { type: 'UPDATE_QUANTITY'; payload: { id: number; quantity: number } }
+  | { type: 'REMOVE_FROM_CART'; payload: string }
+  | { type: 'UPDATE_QUANTITY'; payload: { id: string; quantity: number } }
   | { type: 'TOGGLE_CART' }
   | { type: 'CLEAR_CART' };
 
@@ -45,7 +45,7 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
         newItems = [...state.items, { ...action.payload, quantity: 1 }];
       }
       
-      const total = newItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+      const total = newItems.reduce((sum, item) => sum + item.weight * item.quantity, 0);
       
       return {
         ...state,
@@ -56,7 +56,7 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
     
     case 'REMOVE_FROM_CART': {
       const newItems = state.items.filter(item => item.id !== action.payload);
-      const total = newItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+      const total = newItems.reduce((sum, item) => sum + item.weight * item.quantity, 0);
       
       return {
         ...state,
@@ -72,7 +72,7 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
           : item
       ).filter(item => item.quantity > 0);
       
-      const total = newItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+      const total = newItems.reduce((sum, item) => sum + item.weight * item.quantity, 0);
       
       return {
         ...state,
@@ -102,8 +102,8 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
 interface CartContextType {
   state: CartState;
   addToCart: (item: Omit<CartItem, 'quantity'>) => void;
-  removeFromCart: (id: number) => void;
-  updateQuantity: (id: number, quantity: number) => void;
+  removeFromCart: (id: string) => void;
+  updateQuantity: (id: string, quantity: number) => void;
   toggleCart: () => void;
   clearCart: () => void;
 }
@@ -117,11 +117,11 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     dispatch({ type: 'ADD_TO_CART', payload: item });
   };
 
-  const removeFromCart = (id: number) => {
+  const removeFromCart = (id: string) => {
     dispatch({ type: 'REMOVE_FROM_CART', payload: id });
   };
 
-  const updateQuantity = (id: number, quantity: number) => {
+  const updateQuantity = (id: string, quantity: number) => {
     dispatch({ type: 'UPDATE_QUANTITY', payload: { id, quantity } });
   };
 

@@ -13,10 +13,10 @@ const BestSellers = () => {
 
   const products = [
     {
-      id: 1,
+      id: 'pearl-essence-earrings-1',
       name: "Pearl Essence Earrings",
-      price: 1200,
-      originalPrice: 1500,
+      weight: "12.5g",
+      originalWeight: "15.0g",
       image: productEarrings,
       rating: 4.9,
       reviews: 128,
@@ -24,10 +24,10 @@ const BestSellers = () => {
       category: "Earrings"
     },
     {
-      id: 2,
+      id: 'diamond-infinity-bracelet-2',
       name: "Diamond Infinity Bracelet",
-      price: 3200,
-      originalPrice: null,
+      weight: "32.0g",
+      originalWeight: null,
       image: productBracelet,
       rating: 5.0,
       reviews: 89,
@@ -35,10 +35,10 @@ const BestSellers = () => {
       category: "Bracelets"
     },
     {
-      id: 3,
+      id: 'royal-tennis-necklace-3',
       name: "Royal Tennis Necklace",
-      price: 4500,
-      originalPrice: 5200,
+      weight: "45.0g",
+      originalWeight: "52.0g",
       image: productNecklace,
       rating: 4.8,
       reviews: 156,
@@ -46,10 +46,10 @@ const BestSellers = () => {
       category: "Necklaces"
     },
     {
-      id: 4,
+      id: 'elegance-drop-earrings-4',
       name: "Elegance Drop Earrings",
-      price: 890,
-      originalPrice: null,
+      weight: "8.9g",
+      originalWeight: null,
       image: productEarrings,
       rating: 4.7,
       reviews: 203,
@@ -57,10 +57,10 @@ const BestSellers = () => {
       category: "Earrings"
     },
     {
-      id: 5,
+      id: 'luxury-chain-bracelet-5',
       name: "Luxury Chain Bracelet",
-      price: 2100,
-      originalPrice: 2400,
+      weight: "21.0g",
+      originalWeight: "24.0g",
       image: productBracelet,
       rating: 4.9,
       reviews: 95,
@@ -68,10 +68,10 @@ const BestSellers = () => {
       category: "Bracelets"
     },
     {
-      id: 6,
+      id: 'signature-diamond-necklace-6',
       name: "Signature Diamond Necklace",
-      price: 6800,
-      originalPrice: null,
+      weight: "68.0g",
+      originalWeight: null,
       image: productNecklace,
       rating: 5.0,
       reviews: 67,
@@ -164,6 +164,10 @@ const BestSellers = () => {
                     <Button 
                       size="sm" 
                       className="btn-glass text-white hover:text-primary"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        window.location.href = `/product/${product.id}`;
+                      }}
                     >
                       <Eye className="h-4 w-4 mr-1" />
                       Quick View
@@ -176,7 +180,7 @@ const BestSellers = () => {
                         addToCart({
                           id: product.id,
                           name: product.name,
-                          price: product.price,
+                          weight: product.weight,
                           image: product.image,
                         });
                       }}
@@ -223,18 +227,18 @@ const BestSellers = () => {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-2">
                     <span className="text-2xl font-bold text-luxury">
-                      ${product.price.toLocaleString()}
+                      ${(product.weight * 100).toLocaleString()}
                     </span>
-                    {product.originalPrice && (
+                    {product.originalWeight && (
                       <span className="text-lg text-muted-foreground line-through">
-                        ${product.originalPrice.toLocaleString()}
+                        ${product.originalWeight.toLocaleString()}
                       </span>
                     )}
                   </div>
                   
-                  {product.originalPrice && (
+                  {product.originalWeight && (
                     <Badge variant="destructive" className="bg-red-100 text-red-700">
-                      Save ${(product.originalPrice - product.price).toLocaleString()}
+                      Save ${((product.originalWeight - product.weight) * 100).toLocaleString()}
                     </Badge>
                   )}
                 </div>

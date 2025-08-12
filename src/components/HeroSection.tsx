@@ -63,37 +63,44 @@ const HeroSection = () => {
               <img
                 src={slide.image}
                 alt={slide.title}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover filter brightness-125 saturate-110"
               />
-              <div className="absolute inset-0 bg-hero-gradient" />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent" />
             </div>
 
-            {/* Content */}
-            <div className="relative z-10 flex items-center justify-center h-full">
-              <div className="text-center max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="animate-luxury-fade-in">
-                  <div className="flex items-center justify-center mb-4">
-                    <Sparkles className="h-8 w-8 text-primary mr-3" />
-                    <span className="text-primary font-medium tracking-wider uppercase text-sm">
-                      Premium Luxury
-                    </span>
+            {/* Content Layout */}
+            <div className="relative z-10 flex items-center h-full">
+              <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center h-full">
+                  {/* Text Content - Left Side */}
+                  <div className="animate-luxury-fade-in text-left">
+                    <div className="flex items-center mb-4">
+                      <span className="text-primary font-medium tracking-wider uppercase text-sm">
+                        Premium Luxury
+                      </span>
+                    </div>
+                    
+                    <h1 className="text-5xl md:text-7xl font-luxury font-bold text-white mb-6 leading-tight">
+                      {slide.title}
+                    </h1>
+                    
+                    <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl">
+                      {slide.subtitle}
+                    </p>
+                    
+                    <div className="flex flex-col sm:flex-row gap-4 items-start">
+                      <Button className="btn-luxury text-lg px-8 py-3" onClick={() => navigate('/shop')}>
+                        {slide.cta}
+                      </Button>
+                      <Button variant="outline" className="btn-glass text-white border-white hover:bg-white/10 text-lg px-8 py-3" onClick={() => navigate('/collections')}>
+                        View Collection
+                      </Button>
+                    </div>
                   </div>
                   
-                  <h1 className="text-5xl md:text-7xl font-luxury font-bold text-white mb-6 leading-tight">
-                    {slide.title}
-                  </h1>
-                  
-                  <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto">
-                    {slide.subtitle}
-                  </p>
-                  
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <Button className="btn-luxury text-lg px-8 py-3" onClick={() => navigate('/shop')}>
-                      {slide.cta}
-                    </Button>
-                    <Button variant="outline" className="btn-glass text-white border-white hover:bg-white/10 text-lg px-8 py-3" onClick={() => navigate('/collections')}>
-                      View Collection
-                    </Button>
+                  {/* Image Placeholder - Right Side */}
+                  <div className="hidden lg:block">
+                    {/* Empty space for image alignment */}
                   </div>
                 </div>
               </div>

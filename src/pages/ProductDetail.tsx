@@ -26,10 +26,10 @@ const ProductDetail = () => {
 
   // Mock product data - in real app, fetch based on ID
   const product = {
-    id: parseInt(id || '1'),
+    id: id || 'pearl-essence-earrings-1',
     name: "Pearl Essence Earrings",
-    price: 1200,
-    originalPrice: 1500,
+    weight: 12.5,
+    originalWeight: 15.0,
     images: [productEarrings, productBracelet, productNecklace],
     rating: 4.9,
     reviews: 128,
@@ -55,7 +55,7 @@ const ProductDetail = () => {
     addToCart({
       id: product.id,
       name: product.name,
-      price: product.price,
+      weight: product.weight,
       image: product.images[0],
       size: selectedSize,
       material: selectedMaterial,
@@ -184,47 +184,47 @@ const ProductDetail = () => {
             <div>
               <div className="flex items-center space-x-2 mb-2">
                 <span className="text-sm text-primary font-medium tracking-wider uppercase">
-                  {product.category}
-                </span>
-                <Badge variant="outline" className="text-xs">
-                  SKU: {product.sku}
-                </Badge>
-              </div>
-              
-              <h1 className="text-4xl font-luxury font-bold text-luxury-black mb-4">
-                {product.name}
-              </h1>
-
-              {/* Rating */}
-              <div className="flex items-center space-x-4 mb-6">
-                <div className="flex items-center">
-                  {[...Array(5)].map((_, i) => (
-                    <Star 
-                      key={i} 
-                      className={`h-5 w-5 ${
-                        i < Math.floor(product.rating) 
-                          ? 'text-primary fill-current' 
-                          : 'text-gray-300'
-                      }`}
-                    />
-                  ))}
+                    {product.category}
+                  </span>
+                  <Badge variant="outline" className="text-xs">
+                    SKU: {product.sku}
+                  </Badge>
                 </div>
-                <span className="text-luxury-black font-medium">{product.rating}</span>
-                <span className="text-muted-foreground">({product.reviews} reviews)</span>
-              </div>
+                
+                <h1 className="text-4xl font-luxury font-bold text-luxury-black mb-4">
+                  {product.name}
+                </h1>
 
-              {/* Price */}
+                {/* Rating */}
+                <div className="flex items-center space-x-4 mb-6">
+                  <div className="flex items-center">
+                    {[...Array(5)].map((_, i) => (
+                      <Star 
+                        key={i} 
+                        className={`h-5 w-5 ${
+                          i < Math.floor(product.rating) 
+                            ? 'text-primary fill-current' 
+                            : 'text-gray-300'
+                        }`}
+                      />
+                    ))}
+                  </div>
+                  <span className="text-luxury-black font-medium">{product.rating}</span>
+                  <span className="text-muted-foreground">({product.reviews} reviews)</span>
+                </div>
+
+              {/* Weight */}
               <div className="flex items-center space-x-4 mb-6">
                 <span className="text-4xl font-bold text-luxury">
-                  ${product.price.toLocaleString()}
+                  {product.weight.toLocaleString()}g
                 </span>
-                {product.originalPrice && (
+                {product.originalWeight && (
                   <>
                     <span className="text-2xl text-muted-foreground line-through">
-                      ${product.originalPrice.toLocaleString()}
+                      {product.originalWeight.toLocaleString()}g
                     </span>
                     <Badge variant="destructive" className="bg-red-100 text-red-700">
-                      Save ${(product.originalPrice - product.price).toLocaleString()}
+                      Reduced by {(product.originalWeight - product.weight).toLocaleString()}g
                     </Badge>
                   </>
                 )}

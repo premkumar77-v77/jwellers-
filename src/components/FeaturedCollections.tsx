@@ -16,7 +16,7 @@ const FeaturedCollections = () => {
       description: "Crowning glory of precious gems and rare diamonds",
       image: productNecklace,
       icon: Crown,
-      price: "From $5,000",
+      weight: "From 500g",
       pieces: "24 pieces"
     },
     {
@@ -25,7 +25,7 @@ const FeaturedCollections = () => {
       description: "Romantic pieces for life's most precious moments",
       image: productEarrings,
       icon: Heart,
-      price: "From $2,500",
+      weight: "From 250g",
       pieces: "18 pieces"
     },
     {
@@ -34,7 +34,7 @@ const FeaturedCollections = () => {
       description: "Exclusively crafted statement pieces",
       image: productBracelet,
       icon: Star,
-      price: "From $8,000",
+      weight: "From 800g",
       pieces: "12 pieces"
     }
   ];
@@ -101,7 +101,7 @@ const FeaturedCollections = () => {
                 
                 <div className="flex items-center justify-between">
                   <span className="text-lg font-semibold text-luxury">
-                    {collection.price}
+                    {collection.weight}
                   </span>
                   <Button variant="ghost" className="hover-luxury p-0">
                     View All

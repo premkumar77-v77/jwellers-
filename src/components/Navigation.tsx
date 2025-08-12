@@ -25,7 +25,7 @@ const Navigation = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link to="/" className="text-2xl font-luxury font-bold text-luxury">
-              Lumière
+              Venkateswara Jewellers
             </Link>
           </div>
 
@@ -41,7 +41,7 @@ const Navigation = () => {
                     Shop <ChevronDown className="ml-1 h-4 w-4" />
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-48 glass-card">
+                <DropdownMenuContent className="w-48">
                   {categories.map((category) => (
                     <DropdownMenuItem key={category} className="hover:text-primary">
                       <Link to={`/shop?category=${category.toLowerCase()}`} className="w-full">
@@ -151,9 +151,9 @@ const Navigation = () => {
               </Button>
               <Button variant="ghost" size="icon" className="relative hover-luxury">
                 <ShoppingBag className="h-5 w-5" />
-                {cartCount > 0 && (
+                {state.items.length > 0 && (
                   <span className="absolute -top-1 -right-1 bg-primary text-luxury-black text-xs rounded-full h-5 w-5 flex items-center justify-center font-medium">
-                    {cartCount}
+                    {state.items.length}
                   </span>
                 )}
               </Button>

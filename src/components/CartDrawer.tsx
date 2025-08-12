@@ -52,7 +52,7 @@ const CartDrawer = () => {
                     {item.size && <p className="text-sm text-muted-foreground">Size: {item.size}</p>}
                     {item.material && <p className="text-sm text-muted-foreground">Material: {item.material}</p>}
                     <p className="text-lg font-semibold text-primary mt-1">
-                      ${item.price.toLocaleString()}
+                      {item.weight.toLocaleString()}g
                     </p>
                   </div>
                   
@@ -128,7 +128,7 @@ const CartDrawer = () => {
             </div>
             
             <p className="text-xs text-center text-muted-foreground">
-              Free shipping on orders over $1,000
+              Free shipping on orders
             </p>
           </div>
         )}

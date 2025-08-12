@@ -8,8 +8,8 @@ import { useNavigate } from 'react-router-dom';
 interface Product {
   id: number;
   name: string;
-  price: number;
-  originalPrice?: number;
+  weight: string;
+  originalWeight?: string;
   image: string;
   rating: number;
   reviews: number;
@@ -40,9 +40,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, className = '' }) =>
   const handleAddToCart = (e: React.MouseEvent) => {
     e.stopPropagation();
     addToCart({
-      id: product.id,
+      id: product.id.toString(),
       name: product.name,
-      price: product.price,
+      weight: parseFloat(product.weight),
       image: product.image,
     });
   };
@@ -151,22 +151,22 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, className = '' }) =>
           </span>
         </div>
 
-        {/* Price */}
+        {/* Weight */}
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <span className="text-2xl font-bold text-luxury">
-              ${product.price.toLocaleString()}
+              {product.weight}
             </span>
-            {product.originalPrice && (
+            {product.originalWeight && (
               <span className="text-lg text-muted-foreground line-through">
-                ${product.originalPrice.toLocaleString()}
+                {product.originalWeight}
               </span>
             )}
           </div>
           
-          {product.originalPrice && (
+          {product.originalWeight && (
             <Badge variant="destructive" className="bg-red-100 text-red-700">
-              Save ${(product.originalPrice - product.price).toLocaleString()}
+              Reduced by {(parseFloat(product.originalWeight) - parseFloat(product.weight)).toFixed(2)}g
             </Badge>
           )}
         </div>

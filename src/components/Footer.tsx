@@ -11,7 +11,7 @@ const Footer = () => {
         {/* Newsletter Section */}
         <div className="mb-16 text-center">
           <h3 className="text-3xl font-luxury font-bold mb-4">
-            Stay Connected with <span className="text-luxury">Lumière</span>
+            Stay Connected with <span className="text-luxury">Venkateswara Jewellers</span>
           </h3>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
             Be the first to discover our latest collections, exclusive offers, and jewelry care tips
@@ -36,7 +36,7 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <h3 className="text-2xl font-luxury font-bold text-luxury mb-6">
-              Lumière
+              Venkateswara Jewellers
             </h3>
             <p className="text-gray-300 mb-6 leading-relaxed">
               Crafting extraordinary jewelry pieces that celebrate life's most precious moments with unparalleled elegance and timeless beauty.
@@ -61,13 +61,23 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-6">Quick Links</h4>
             <ul className="space-y-3">
-              {['About Us', 'Collections', 'Custom Design', 'Gift Cards', 'Size Guide', 'Care Instructions'].map((link) => (
+              {['About Us', 'Collections', 'Custom Design'].map((link) => (
                 <li key={link}>
                   <a href="#" className="text-gray-300 hover:text-primary transition-colors">
                     {link}
                   </a>
                 </li>
               ))}
+              <li>
+                <a href="/contact" className="text-gray-300 hover:text-primary transition-colors">
+                  Size Guide
+                </a>
+              </li>
+              <li>
+                <a href="/contact" className="text-gray-300 hover:text-primary transition-colors">
+                  Care Instructions
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -90,10 +100,8 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-6">Contact Info</h4>
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
-                <MapPin className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                <div>
-                  <p className="text-gray-300">123 Luxury Avenue</p>
-                  <p className="text-gray-300">Beverly Hills, CA 90210</p>
+                <MapPin className="h-5 w-5 text-primary mt-1 flex-shrink-0" />                <div>
+                  <p className="text-gray-300">No 89, Opp to Police Station, BALAJI COMPLEX, NEHRU BAZAAR, Avadi-600054.</p>
                 </div>
               </div>
               
@@ -122,7 +130,7 @@ const Footer = () => {
         <div className="border-t border-gray-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-gray-400 text-sm mb-4 md:mb-0">
-              <p>&copy; {currentYear} Lumière Jewelry. All rights reserved.</p>
+              <p>&copy; {currentYear} Venkateswara Jewellers. All rights reserved.</p>
             </div>
             
             <div className="flex flex-wrap gap-6 text-sm text-gray-400">

@@ -38,7 +38,7 @@ const About = () => {
       name: "Elena Marchetti",
       role: "Master Designer & Founder",
       image: "https://images.unsplash.com/photo-1494790108755-2616b612b47c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
-      bio: "With over 30 years of experience, Elena's vision has shaped Lumière into the prestigious brand it is today."
+      bio: "With over 30 years of experience, Elena's vision has shaped Venkateswara Jewellers into the prestigious brand it is today."
     },
     {
       name: "Marcus Thompson",
@@ -67,12 +67,12 @@ const About = () => {
               </span>
             </div>
             
-            <h1 className="text-5xl md:text-6xl font-luxury font-bold text-luxury-black mb-6">
-              About Lumière
+            <h1 className="text-5xl md:text-6xl font-body font-bold text-luxury-black mb-6">
+              About Venkateswara Jewellers
             </h1>
             
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              For over five decades, Lumière has been synonymous with exceptional luxury jewelry, 
+              For over five decades, Venkateswara Jewellers has been synonymous with exceptional luxury jewelry, 
               creating pieces that celebrate life's most precious moments with unparalleled artistry and elegance.
             </p>
           </div>
@@ -80,40 +80,23 @@ const About = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        {/* Stats Section */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20">
-          {stats.map((stat, index) => (
-            <div 
-              key={stat.label}
-              className="text-center bg-white rounded-xl p-6 shadow-elegant animate-luxury-fade-in"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <stat.icon className="h-12 w-12 text-primary mx-auto mb-4" />
-              <div className="text-3xl font-luxury font-bold text-luxury-black mb-2">
-                {stat.value}
-              </div>
-              <div className="text-sm text-muted-foreground font-medium">
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </div>
+
 
         {/* Story Section */}
         <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
           <div className="animate-luxury-slide-up">
-            <h2 className="text-4xl font-luxury font-bold text-luxury-black mb-6">
+            <h2 className="text-4xl font-body font-bold text-luxury-black mb-6">
               Our Heritage
             </h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                Founded in 1973 by master jeweler Elena Marchetti, Lumière began as a small atelier 
+                Founded in 1973 by master jeweler Elena Marchetti, Venkateswara Jewellers began as a small atelier 
                 in the heart of Paris. What started as a passion for creating exceptional jewelry 
                 has evolved into one of the world's most respected luxury jewelry houses.
               </p>
               <p>
                 Our commitment to excellence has remained unwavering throughout the decades. Every piece 
-                that bears the Lumière name is a testament to our dedication to superior craftsmanship, 
+                that bears the Venkateswara Jewellers name is a testament to our dedication to superior craftsmanship, 
                 ethical sourcing, and timeless design.
               </p>
               <p>
@@ -128,7 +111,7 @@ const About = () => {
             <div className="aspect-square bg-primary/10 rounded-2xl flex items-center justify-center">
               <div className="text-center">
                 <Sparkles className="h-24 w-24 text-primary mx-auto mb-4" />
-                <h3 className="text-2xl font-luxury font-bold text-luxury-black">
+                <h3 className="text-2xl font-body font-bold text-luxury-black">
                   Crafting Dreams
                 </h3>
                 <p className="text-muted-foreground mt-2">
@@ -142,7 +125,7 @@ const About = () => {
         {/* Values Section */}
         <div className="mb-20">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-luxury font-bold text-luxury-black mb-4">
+            <h2 className="text-4xl font-body font-bold text-luxury-black mb-4">
               Our Values
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -158,7 +141,7 @@ const About = () => {
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <value.icon className="h-12 w-12 text-primary mb-6" />
-                <h3 className="text-xl font-luxury font-semibold text-luxury-black mb-4">
+                <h3 className="text-xl font-body font-semibold text-luxury-black mb-4">
                   {value.title}
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
@@ -172,11 +155,11 @@ const About = () => {
         {/* Team Section */}
         <div className="mb-20">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-luxury font-bold text-luxury-black mb-4">
+            <h2 className="text-4xl font-body font-bold text-luxury-black mb-4">
               Meet Our Team
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              The passionate artisans behind every Lumière creation
+              The passionate artisans behind every Venkateswara Jewellers creation
             </p>
           </div>
 
@@ -194,7 +177,7 @@ const About = () => {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <h3 className="text-xl font-luxury font-semibold text-luxury-black mb-2">
+                <h3 className="text-xl font-body font-semibold text-luxury-black mb-2">
                   {member.name}
                 </h3>
                 <p className="text-primary font-medium mb-4">
@@ -211,11 +194,11 @@ const About = () => {
         {/* Commitment Section */}
         <div className="bg-white rounded-2xl p-12 shadow-elegant text-center">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-4xl font-luxury font-bold text-luxury-black mb-6">
+            <h2 className="text-4xl font-body font-bold text-luxury-black mb-6">
               Our Commitment to You
             </h2>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              When you choose Lumière, you're not just purchasing jewelry – you're investing in 
+              When you choose Venkateswara Jewellers, you're not just purchasing jewelry – you're investing in 
               a legacy of excellence. Every piece comes with our lifetime warranty and the 
               assurance that it has been created with the utmost care and attention to detail.
             </p>
