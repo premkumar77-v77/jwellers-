@@ -350,8 +350,6 @@ const Shop = () => {
                   ...product,
                   weight: product.weight.toString(),
                   originalWeight: product.originalWeight?.toString()
-                  ...product,
-                  weight: product.weight.toString()
                 }}
                 className={viewMode === 'list' ? 'flex flex-row' : ''}
               />
@@ -359,7 +357,6 @@ const Shop = () => {
           </div>
         ) : (
           <div className="text-center py-12">
-            
             <h3 className="text-2xl font-luxury font-semibold mb-2">No products found</h3>
             <p className="text-muted-foreground mb-6">
               Try adjusting your search or filter criteria
